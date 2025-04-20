@@ -17,7 +17,8 @@
       e.preventDefault();
       const formData = new FormData(this);
       const formBody = new URLSearchParams(formData);
-      fetch("https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbx1OEdrBQpSBbAiwQo_-GmD-GaioP17ZjSVGdcYumjwfL1_JqMG5IgDarnLAvaO2po8iw/exec", {
+
+      fetch("https://script.google.com/macros/s/AKfycbxDPDiRqY3XlARj4fiDsHGhdNDdAdqgZIM2ZdOQJ4C9xc5UQ1Mj7tKWAVtCSKKjkqYv/exec", {
         method: "POST",
         body: formBody
       })

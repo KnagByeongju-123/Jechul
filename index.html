@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>최소 제출 예제</title>
+</head>
+<body>
+  <h2>간단한 제출 폼</h2>
+  <form id="simpleForm">
+    <label>이름: <input type="text" name="이름" required></label><br><br>
+    <label>내용: <textarea name="내용" required></textarea></label><br><br>
+    <button type="submit">제출</button>
+  </form>
+
+  <script>
+    document.getElementById("simpleForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const formBody = new URLSearchParams(formData);
+/여기에 웹앱 URL
+      fetch("https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbx1OEdrBQpSBbAiwQo_-GmD-GaioP17ZjSVGdcYumjwfL1_JqMG5IgDarnLAvaO2po8iw/exec", {
+        method: "POST",
+        body: formBody
+      })
+      .then(response => response.text())
+      .then(data => {
+        alert("제출 완료: " + data);
+        this.reset();
+      })
+      .catch(error => {
+        alert("제출 실패: " + error);
+      });
+    });
+  </script>
+</body>
+</html>
